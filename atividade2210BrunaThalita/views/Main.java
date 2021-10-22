@@ -1,13 +1,9 @@
 package atividade2210BrunaThalita.views;
 import java.util.Scanner;
-
-import atividade0410.Produto;
 import atividade2210BrunaThalita.controllers.CategoriasController;
 import atividade2210BrunaThalita.controllers.ProdutosController;
-import atividade2210BrunaThalita.models.Base;
 import atividade2210BrunaThalita.models.Categorias;
 import atividade2210BrunaThalita.models.Produtos;
-
 
 public class Main{
     
@@ -15,7 +11,6 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         ProdutosController prod = new ProdutosController();
         CategoriasController cat = new CategoriasController();
-
 
         int opcao;
         do {
@@ -55,7 +50,7 @@ public class Main{
         prod1.eletrodomestico = sc.nextLine();
         Categorias cat1 = new Categorias();
         System.out.print("Digite o id: ");
-        cat1.id = Integer.parseInt(sc.nextLine());
+        prod1.id = Integer.parseInt(sc.nextLine());
         System.out.print("Digite o tipo: ");
         cat1.tipo = sc.nextLine();
         System.out.print("Digite a voltagem: ");
@@ -70,14 +65,13 @@ public class Main{
         for (Produtos produto : prod.read()) {
                    System.out.printf("\nProduto Cadastrado %s", produto);
             }
-
     }
 
     private static void alterar(ProdutosController prod, Scanner sc) {
         Produtos prod1 = new Produtos();
         Categorias cat1 = new Categorias();
         System.out.print("Digite o id do produto a ser alterado: ");
-        cat1.id = Integer.parseInt(sc.nextLine());
+        prod1.id = Integer.parseInt(sc.nextLine());
         System.out.print("Digite o eletrodoméstico: ");
         prod1.eletrodomestico = sc.nextLine();
         System.out.print("Digite o tipo: ");
@@ -95,9 +89,11 @@ public class Main{
         Categorias cat1 = new Categorias();
         System.out.print("Digite o ID do produto a ser deletado: ");
         prod1.id = Integer.parseInt(sc.nextLine());
+        prod1.catProduto = cat1;
         prod.delete(prod1);
         for (Produtos produto : prod.read()) {
-        System.out.printf("\nProduto Deletado.");
+            System.err.println(produto);
         }
+        System.out.printf("\nProduto Deletado.");
     }
 }

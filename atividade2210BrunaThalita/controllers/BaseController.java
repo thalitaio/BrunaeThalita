@@ -1,31 +1,22 @@
 package atividade2210BrunaThalita.controllers;
 import java.util.ArrayList;
 
-
-
 public class BaseController <T> {
-
     private ArrayList<T> dados;
 
     public BaseController(){
         this.dados = new ArrayList<T>();
-
     }
 
     //create
-
     public void create(T obj) {
-
         this.dados.add(obj);
-
     }
 
     //read
-
     public ArrayList<T> read() {
         return this.dados;  
     }
-
 
     //updade
     public void update(T obj){
